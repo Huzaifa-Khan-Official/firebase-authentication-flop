@@ -29,3 +29,11 @@ onAuthStateChanged(auth, (user) => {
         location.href = "./signup.html";
     }
 });
+
+const logout = document.querySelector("#logout");
+
+logout.addEventListener("click", () => {
+    auth.signOut().then(()=> {
+        location.href = "./signup.html";
+    })
+})

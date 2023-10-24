@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 let semail = document.querySelector("#semail");
 let spassword = document.querySelector("#spassword");
 let sbtn = document.querySelector("#sbtn");
-
+let errorPara = document.querySelector("#errorPara");
 
 
 sbtn.addEventListener("click", () => {
@@ -32,8 +32,12 @@ sbtn.addEventListener("click", () => {
         })
         .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
+            const errorMessage = errorCode.slice(5).toUpperCase();
+            const errMessage = errorMessage.replace(/-/g, " ")
+            errorPara.innerText = errMessage;
+            setTimeout(() => {
+                errorPara.innerHTML = "";
+            }, 4000);
         });
 })
 
