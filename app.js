@@ -26,7 +26,7 @@ onAuthStateChanged(auth, (user) => {
         const uemail = user.email;
         username.innerText = `Welcome ${uemail}`
     } else {
-        location.href = "./signup.html";
+        location.href = "../signup/signup.html";
     }
 });
 
@@ -34,6 +34,6 @@ const logout = document.querySelector("#logout");
 
 logout.addEventListener("click", () => {
     auth.signOut().then(()=> {
-        location.href = "./signup.html";
+        location.href = "../signup/signup.html";
     })
 })
